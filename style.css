@@ -1,0 +1,195 @@
+/* Global styles */
+body {
+    font-family: 'San Francisco', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #444;
+    line-height: 1.8;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Container */
+.container {
+    max-width: 1000px;
+    margin: 4em auto;
+    background: #fff;
+    padding: 60px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Modern way to create space between elements */
+}
+footer{
+    padding-left: 20px;
+
+}
+/* Headers */
+h1, h2, h3, h4 {
+    color: #2e2e2e;
+    margin: 0;
+}
+
+h1 {
+    font-size: 2.4em;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    padding-left: 20px
+}
+
+h2 {
+    font-size: 2em;
+    padding-left: 50px; 
+    position: relative;
+    margin-bottom: 15px;
+}
+
+h2::before {  /* Modern design accent for h2 headers */
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 75%;
+    width: 6px;
+    background-color: #007aff; /* Apple-blue color */
+    border-radius: 3px;
+}
+
+h3 {
+    font-size: 1.6em;
+    margin-bottom: 10px;
+}
+
+h4 {
+    font-size: 1.3em;
+    margin-bottom: 5px;
+}
+
+/* Table of Contents */
+ul {
+    padding-left: 30px;
+    margin-bottom: 20px;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+ul li a {
+    color: #007aff; /* Apple-blue color */
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease-in-out;
+}
+
+ul li a:hover {
+    color: #0055a3;
+}
+
+/* Code styling */
+pre {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+code {
+    font-family: 'Courier New', Courier, monospace;
+    color: #d61c1c;
+    font-size: 0.95em;
+}
+
+/* Extra styles */
+a {
+    color: #007aff; /* Apple-blue color */
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+a:hover {
+    color: #0055a3;
+}
+
+p {
+    margin-bottom: 20px;
+}
+/* Table Base Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Headers & Cells */
+th, td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd; /* Subtle borders for the cells */
+}
+
+/* Header Styles */
+thead tr {
+    background-color: #007aff; /* Apple-blue color */
+    color: #ffffff;
+    font-weight: bold;
+    text-align: left;
+}
+
+/* Body Styles */
+tbody tr {
+    transition: background-color 0.2s ease-in-out;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f6f6f6; /* Zebra-striping for rows */
+}
+
+tbody tr:hover {
+    background-color: #efefef; /* Hover effect */
+}
+
+/* Footer Styles */
+tfoot {
+    font-weight: bold;
+    font-size: 0.95em;
+    color: #333;
+}
+
+tfoot tr {
+    background-color: #eaeaea;
+}
+
+/* To ensure the footer cells don't have the border-bottom */
+tfoot td {
+    border-bottom: none;
+}
+/* Styles for the XML container */
+pre {
+    background-color: #f2ebde;
+    color: #903409;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    overflow-x: auto; /* Allows scrolling on long lines */
+    max-width: 100%;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Optional: Color-coded XML tags for better readability */
+span.tag {
+    color: #228822; /* Green for XML tags */
+}
+
+span.attribute {
+    color: #882288; /* Purple for attribute names */
+}
+
+span.value {
+    color: #2288AA; /* Blue for attribute values */
+}

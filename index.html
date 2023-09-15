@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Scenario Documentation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>ATG Mobile - Automated Test Scenario </h1>
+    </header>
+
+    <nav>
+        <!-- Navigation links for quick access -->
+        <ul>
+            <li><a href="#environment-setup">Environment Setup</a></li>
+            <li><a href="#how-to-run">How to Run </a></li>
+            <li><a href="#needed-tools">Needed Tools</a></li>
+            <li><a href="#appium-setup">Appium Setup</a></li>
+        </ul>
+    </nav>
+
+    <section id="environment-setup">
+        <h2>Environment Setup - Windows/Android</h2>
+        <ul>
+            <li>
+                <p>Install Java JDK: 
+                    <a href="https://www.oracle.com/br/java/technologies/downloads/" target="_blank" rel="noopener noreferrer">Download from Oracle</a>
+                </p>
+            </li>
+            <li>
+                <p>Set JAVA_HOME: 
+                    <ol>
+                        <li>
+                            <a>Verify where Java has been installed: usually C:\Program Files\Java\jdk_version.</a>
+                        </li>
+                        <li>
+                            <a>Edit windows's system variables: Add JAVA_HOME and set it as the Java path mentioned before.  </a>
+                        </li>
+                        <li>
+                            <a>Type the command 
+                                <code>
+                                    echo %JAVA_HOME%
+                                </code>
+                                on your terminal shell and the return should be the path set before. 
+                            </a>
+                        </li>
+                    </ol>
+                </p>
+            </li>
+            <li>
+                <p>Install Android Studio: 
+                    <a href=https://developer.android.com/studio target="_blank" rel="noopener noreferrer">Download from developer.android</a>
+                </p>
+            </li>
+            <li>
+                <p>Install SDK's from Android Studio's SDK manager and create virtual device (recommended is Android 12 with most recent ABI format).</p>
+            </li>
+            <li>
+                <p>Set the ANDROID_HOME environment variable to the path of your Android SDK (same steps as JAVA_HOME, but this time the desired path is the one where the SDK was installed). </p>
+            </li>
+            <li>
+                <p>Install node.js: 
+                    <a href=https://nodejs.org/en/download target="_blank" rel="noopener noreferrer">Download from nodejs.org</a>
+                </p>
+            </li>
+            <li>
+                <p>Install Appium Test Framework: 
+                    <a href=https://github.com/appium/appium target="_blank" rel="noopener noreferrer">Clone the desktop client from github</a>
+                    <a> or run <code> npm i --location=global appium </code> on your shell (after installing node.js because it contains the NPM). </a>
+                </p>
+            </li>
+            <li>
+                <p>Main Visual Studio packages (nuGet): 
+                    <ol>
+                        <li>
+                            <a href=https://www.nuget.org/packages/specflow/ target="_blank" rel="noopener noreferrer">https://www.nuget.org/packages/specflow/</a>
+                            <a> or run <code> dotnet add package SpecFlow --version 3.9.74
+                            </code> on the package manager console. </a>
+                        </li>
+                        <li>
+                            <a href=https://www.nuget.org/packages/Appium.WebDriver/5.0.0-rc.1 target="_blank" rel="noopener noreferrer">https://www.nuget.org/packages/Appium.WebDriver/5.0.0-rc.1</a>
+                            <a> or run <code> dotnet add package Appium.WebDriver --version 5.0.0-rc.1
+                            </code> on the package manager console. </a>
+                        </li>
+                    </ol>
+                    
+                    
+                </p>
+            </li>
+            
+        </ul>
+    </section>
+
+    <section id="how-to-run">
+        <h2>How to Run</h2>
+        <ul>
+            <li>
+                <p>Create and Start Emulator:</p>
+                <ol>
+                    <li>Start Android Studio -> More Actions.</li>
+                    <li><a href=https://github.com/david-wolff/mobileTests target="_blank" rel="noopener noreferrer">Project repository on GitHub (It's private due to sensible information, please ask for access through doliveira@americastg.com).</a></li>
+                    <li>Virtual Device Manager -> Create.</li>
+                    <li>Choose phone + x86_64 Image + Android S (12).</li>
+                    <li>Start Device.</li>
+                </ol>
+            </li>
+            <li>Open The Project in Visual Studio and search for the files: GlobalSettings.resx and AndroidSettings.resx. </li>
+            <li><a href=https://bitbucket.org/americastg/mtbmobile/pipelines/results/ target="_blank" rel="noopener noreferrer">Download APK from ATG Mobile Pipeline</a></li>
+            <li> <h3>GlobalSettings.resx:</h3>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Value </th>
+                            <th>Comment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Platform </td>
+                            <td>Android</td>
+                            <td>Desired OS</td>
+                        </tr>
+                        <tr>
+                            <td>ServerUri</td>
+                            <td>http://127.0.0.1:4723/wd/hub/</td>
+                            <td>Localhost address + '/wd/hub/' appium client endpoint (same used in Appium Inspector)</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3">This is an excel file responsible for the Appium Server connection.</td>
+                        </tr>
+                    </tfoot>
+                </table>
+                
+            </li>
+            <li> <h3>AndroidSettings.resx:</h3>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Value </th>
+                            <th>Comment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ApkPath </td>
+                            <td>C:\\mtbMobile\\app-release-10.97.1.73.apk</td>
+                            <td>Path where APK has saved in.</td>
+                        </tr>
+                        <tr>
+                            <td>DeviceIdentifier</td>
+                            <td>emulator-554</td>
+                            <td>Name that the pc recognizes the emulator/phone as. You can check wich devices are available by typing the command <code>ADB devices</code> on your shell.</td>
+                        </tr>
+                        <tr>
+                            <td>DevicePlatform </td>
+                            <td>12</td>
+                            <td>Device's Android Version</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3">This is an excel file responsible for setting the device capibilities to the client.</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </li>
+            <li>
+                <h3>App.config:</h3>
+                <pre>
+                    &lt;?xml version="1.0" encoding="utf-8" ?&gt;
+                    &lt;configuration&gt;
+                        &lt;appSettings&gt;
+                            &lt;add key="AtomicBaseAddress" value="http://10.97.1.86:51511/api/" /   <--- MTB Dockerhost &gt; 
+                            &lt;add key="AtomicTokenUrl" value="http://10.97.1.86:51516/connect/token" <--- MTB Dockerhost /&gt;
+                            &lt;add key="AtomicClientId" value="doliveira" <--- MTB Server Username /&gt;
+                            &lt;add key="AtomicClientSecret" value="zXtj8zYEBnPz5fVhaAM2NRkgvRqvB6X2X2i..." <--- MTB Server Client Secret/&gt;
+                        &lt;/appSettings&gt;
+                    &lt;/configuration&gt;
+                        </pre>                               
+            </li>
+            <li>Start Appium Client through GUI http://127.0.0.1:4723/wd/hub or run the command <code>appium</code> on your terminal.</li>
+            <li>With the emulator and the appium client running, run the scenarios on your test explorer and you should be good to go.</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; ATG - Quality Assurance Team - 2023</p>
+    </footer>
+
+</body>
+
+</html>
